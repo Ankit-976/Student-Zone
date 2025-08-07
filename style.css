@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+:root{
+    --scs : 6px solid rgb(23, 170, 23);
+    --err : 6px solid red;
+    --lgt : 6px solid rgb(238, 0, 255);
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -119,6 +125,38 @@ nav {
 
 .page.active {
     display: block;
+}
+
+.errorSuccessBox{
+    position: absolute;
+    height: 4rem;
+    width: auto;
+    padding: 0 1rem;
+    top: 6.5em;
+    right: -100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: right 1.5s ease;
+    z-index: 999;
+}
+
+.scsBox{
+    border-left: var(--scs);
+}
+
+.errBox{
+    border-left: var(--err);
+}
+
+.lgtBox{
+    border-left: var(--lgt);
+}
+
+.errorSuccessBox.show{
+    right: 0.4rem;
 }
 
 /* Home Page */

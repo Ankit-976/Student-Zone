@@ -1,5 +1,3 @@
-
-
 // Page navigation
 function showPage(pageId) {
     // Hide all pages
@@ -32,6 +30,7 @@ function handleLogin(event) {
     event.preventDefault();
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
+    const alertBox = document.getElementById('alertBox');
 
     // Simple validation
     if (email && password) {
@@ -49,9 +48,23 @@ function handleLogin(event) {
         showPage('dashboard');
 
         // Show success message
-        alert('Login successful! Welcome to Study Zone!');
+        alertBox.textContent = 'Login successful!';
+        alertBox.classList.add('scsBox');
+        alertBox.classList.add('show');
+        setTimeout(() => {
+            alertBox.classList.remove('scsBox');
+            alertBox.classList.remove('show');
+        }, 4000)
+        // alert('Login successful! Welcome to Study Zone!');
     } else {
-        alert('Please fill in all fields');
+        alertBox.textContent = 'Please fill in all fields';
+        alertBox.classList.add('errBox');
+        alertBox.classList.add('show');
+        setTimeout(() => {
+            alertBox.classList.remove('errBox');
+            alertBox.classList.remove('show');
+        }, 5000)
+        // alert('Please fill in all fields');
     }
 }
 
@@ -61,6 +74,8 @@ function handleRegister(event) {
     const email = document.getElementById('registerEmail').value;
     const password = document.getElementById('registerPassword').value;
     const college = document.getElementById('registerCollege').value;
+    const alertBox = document.getElementById('alertBox');
+
 
     // Simple validation
     if (name && email && password && college) {
@@ -79,9 +94,23 @@ function handleRegister(event) {
         showPage('dashboard');
 
         // Show success message
-        alert('Registration successful! Welcome to Study Zone!');
+        alertBox.textContent = 'Registration successful!';
+        alertBox.classList.add('scsBox');
+        alertBox.classList.add('show');
+        setTimeout(() => {
+            alertBox.classList.remove('show');
+            alertBox.classList.remove('scsBox');
+        }, 4000)
+        // alert('Registration successful! Welcome to Study Zone!');
     } else {
-        alert('Please fill in all fields');
+        alertBox.textContent = 'Please fill in all fields';
+        alertBox.classList.add('errBox');
+        alertBox.classList.add('show');
+        setTimeout(() => {
+            alertBox.classList.remove('errBox');
+            alertBox.classList.remove('show');
+        }, 5000)
+        // alert('Please fill in all fields');
     }
 }
 
@@ -97,7 +126,15 @@ function updateUserInfo(userData) {
 function logout() {
     localStorage.removeItem('studyZoneUser');
     showPage('home');
-    alert('Logged out successfully!');
+    const alertBox = document.getElementById('alertBox');
+    alertBox.textContent = 'Logged out successfully!';
+    alertBox.classList.add('lgtBox');
+    alertBox.classList.add('show');
+    setTimeout(() => {
+        alertBox.classList.remove('lgtBox');
+        alertBox.classList.remove('show');
+    }, 4000)
+    // alert('Logged out successfully!');
 }
 
 // Check if user is already logged in
